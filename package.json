@@ -1,0 +1,19 @@
+{
+  "name": "javascript-training",
+  "version": "1.0.0",
+  "description": "This is my repository focuses on Javascript training plan",
+  "main": "index.js",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel --no-cache",
+    "build": "parcel build --no-cache"
+  },
+  "keywords": [],
+  "author": "TanTran",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "parcel": "^2.9.3"
+  }
+}
