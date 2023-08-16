@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "This is my repository focuses on Javascript training plan",
   "main": "index.js",
-  "source": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel --no-cache",
-    "build": "parcel build --no-cache"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "keywords": [],
   "author": "TanTran",
