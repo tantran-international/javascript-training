@@ -1,6 +1,8 @@
 /* difference ways to create an array */
 const array1 = [1, 2, 3, 4, 5];
 const array2 = new Array('six', 'seven', 'eight', 'nine', 'ten');
+const arrayX = Array.of('a', 'b', 'c');
+console.log(arrayX);
 
 
 console.log(array1);
@@ -37,3 +39,9 @@ console.log(array1);
 array1.splice(0, 2, 1, 2, 3, 4);
 console.log(array1);
 // remove 1, 2 and add 1, 2, 3, 4 from the start
+
+
+/* push & unshift in addition to adding items to arrays, they can also indicate array length */
+console.log(array2.unshift('four', 'five'));
+console.log(array2.push('eleven', 'twelve'));
+console.log(array2);
