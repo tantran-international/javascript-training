@@ -12,7 +12,10 @@ sum(9, 10, printSum);
 // dipsplay: Check sum 9 + 10 = 19
 
 /* promise */
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(/* Executor */ function(resolve, reject) {
+    /* logic */
+    /* success: resolve or anything */
+    /* failure: reject or anything */
     resolve();
   })
 
