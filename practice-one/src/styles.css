@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+}
+
+.menu-table, .cart-table {
+	margin: 0 auto 2rem;
+	border-collapse: collapse;
+	font-size: 2rem;
+	text-align: left;
+}
+
+.table-heading {
+	border: 0.06rem solid black;
+	background-color: aquamarine;
+}
+
+.table-item {
+	width: 6.25rem;
+	height: 3.125rem;
+	border: 0.06rem solid black;
+	background:rgb(236, 236, 236);
+	font-size: 1rem;
+	text-align: center;
+}
+
+.menu-btn {
+	width: 100%;
+	height: 100%;
+}
+
+.checkout-btn {
+	display: block;
+	margin: 0 auto 0.625rem;
+}
+
+.checkout-cash {
+	margin: 0 auto;
+	width: 18.75rem;
+	height: 1.56rem;
+	border: 0.06rem solid black;
+	overflow: hidden;
+}
