@@ -5,10 +5,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practice-one</title>
+  <link rel="stylesheet" href="./src/styles.css">
+  <script src="./src/index.js"></script>
 </head>
 
 <body>
+  <table class="menu-table">
+    <tr>
+      <th class="table-heading" colspan="4">Menu</th>
+    </tr>
+    <tr>
+      <td class="table-item food-first"></td>
+      <td class="table-item amount-first"></td>
+      <td class="table-item price-first"></td>
+      <td class="table-item">
+				<button class="menu-btn menu-btn-first">Add to Cart</button>
+			</td>
+    </tr>
+    <tr>
+      <td class="table-item food-second"></td>
+      <td class="table-item amount-second"></td>
+      <td class="table-item price-second"></td>
+      <td class="table-item">
+				<button class="menu-btn menu-btn-second">Add to Cart</button>
+			</td>
+    </tr>
+    <tr>
+      <td class="table-item food-third"></td>
+      <td class="table-item amount-third"></td>
+      <td class="table-item price-third"></td>
+      <td class="table-item">
+				<button class="menu-btn menu-btn-third">Add to Cart</button>
+			</td>
+    </tr>
+  </table>
 
+  <table class="cart-table">
+    <tr>
+      <th class="table-heading" colspan="3">Cart</th>
+    </tr>
+    <tr>
+      <td class="table-item cart-count-first"></td>
+      <td class="table-item cart-item-food-first"></td>
+      <td class="table-item cart-item-amount-first"></td>
+    </tr>
+    <tr>
+      <td class="table-item cart-count-second"></td>
+      <td class="table-item cart-item-food-second"></td>
+      <td class="table-item cart-item-amount-second"></td>
+    </tr>
+    <tr>
+      <td class="table-item cart-count-third"></td>
+      <td class="table-item cart-item-food-third"></td>
+      <td class="table-item cart-item-amount-third"></td>
+    </tr>
+  </table>
+
+  <button class="checkout-btn" type="button">Checkout</button>
+  <p class="checkout-cash"></p>
 </body>
 
 </html>
