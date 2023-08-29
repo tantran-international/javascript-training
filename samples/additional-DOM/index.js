@@ -11,6 +11,6 @@ for (i = 0; i <= demoClass.length; i++) {
 
 const demoQuery = document.querySelectorAll('.demo-query-all');
 console.log(demoQuery);
-demoQuery.forEach((query) => {
-  query.style.color = 'blue';
-});
+for (y = 0; y <= demoQuery.length; y++) {
+  demoQuery[y].style.color = 'blue';
+}
