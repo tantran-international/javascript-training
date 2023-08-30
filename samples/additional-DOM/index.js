@@ -17,6 +17,7 @@ demoQuery.forEach((abc) => {
 
 /* getElementByTagName method */
 const collection = document.getElementsByTagName('li');
+console.log(collection);
 let text = ' ';
 for (i = 0; i < collection.length; i++) {
   text += collection[i].innerHTML + '<br>';
@@ -48,3 +49,9 @@ console.log(document.getElementsByTagName('ul')[0].lastElementChild);
 const u = document.getElementsByTagName('ul')[0];
 u.firstElementChild.style.color = 'red';
 u.lastElementChild.style.color = 'blue';
+
+document.getElementsByTagName('ul')[0].nextElementSibling.style.fontSize = '50px';
+document.getElementsByTagName('ul')[0].previousElementSibling.style.fontSize = '50px';
+
+collection[1].nextSibling.style.fontSize = '50px';
+collection[1].previousSibling.style.fontSize = '50px';
