@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Learning the DOM</title>
+		<style>
+			.demo-class {
+				font-size: 2rem;
+			}
+			.demo-query-all {
+				font-size: 2rem;
+			}
+		</style>
+  </head>
+
+  <body>
+    <h1>Document Object Model</h1>
+    <button id="changeBackground">Change Background Color</button>
+
+		<div class="demo-class">Access me by class (1)</div>
+		<div class="demo-class">Access me by class (2)</div>
+
+		<div class="demo-query-all">Access me by query (1)</div>
+		<div class="demo-query-all">Access me by query (2)</div>
+
+		<!-- sample 2-->
+		<h1>The Document Object</h1>
+		<h2>The getElementsByTagName() Method</h2>
+		<p>An unordered list:</p>
+		<ul>
+			<li>Coffee</li>
+			<li>Tea</li>
+			<li>Milk</li>
+		</ul>
+		<p>The innerHTML of the second li element is:</p>
+		<p id="demo"></p>
+    <script src="./index.js"></script>
+  </body>
+
+</html>
