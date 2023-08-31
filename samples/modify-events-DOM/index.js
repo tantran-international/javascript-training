@@ -49,5 +49,65 @@ console.log(h1.className); // value off class attribute
 h1.classList.add('second-class'); // 	First way to add className
 console.log(h1.classList);
 console.log(h1.className);
-h1.className += ' class1 class2' // Second way to add className
+h1.className += ' class1 class2'; // Second way to add className
 console.log(h1.classList);
+
+/* event handler attribute */
+const p = document.querySelector('p');
+
+function changeTextColor() {
+  p.style.color = 'red';
+}
+
+/* event handler properties */
+const btn = document.querySelector('button');
+
+const changeText = () => {
+  p.textContent = 'This Text is changed';
+};
+
+btn.ondblclick = changeText;
+
+/* event listener */
+btn.addEventListener('mouseenter', () => {
+  p.style.color = 'green';
+});
+
+/* last demo */
+// Test the key and code properties display in console
+document.addEventListener('keypress', (event) => {
+  console.log('key: ' + event.key);
+  console.log('code: ' + event.code);
+});
+
+/* event objects */
+document.addEventListener('keydown', (e) => {
+	const element = document.querySelector('.test');
+	element.style.border = '1px solid red';
+	element.style.width = 'fit-content';
+	const a = 'KeyA';
+	const s = 'KeyS';
+	const d = 'KeyD';
+	const w = 'KeyW';
+
+	switch (e.code) {
+		case a:
+			element.textContent = '<-';
+			break;
+		case s:
+			element.textContent = 'Down';
+			break;
+		case d:
+			element.textContent = '->';
+			break;
+		case w:
+			element.textContent = 'Up';
+			break;
+	}
+});
+
+/* console log target when user click on it */
+const ul = document.querySelector('ul');
+ul.addEventListener('click', (abc) => {
+  console.log(abc.target);
+});
