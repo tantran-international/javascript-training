@@ -47,7 +47,7 @@ const validateInputs = () => {
   if (emailValue === '') {
     checkError(email, 'Email address empty or wrong format, example: username@somewhere.sth');
   } else if (!validateEmail(emailValue)) {
-    checkError(email), 'Provide a valid email address';
+    checkError(email, 'Provide a valid email address');
   } else {
     checkSuccess(email);
   }
