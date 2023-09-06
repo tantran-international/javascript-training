@@ -6,17 +6,24 @@ const password = document.querySelector('#password');
 const confirmPassword = document.querySelector('#password-confirm');
 
 // Validate and display error messages by creating text and assigning to it's P tags
-const checkError = (element, message) => {
+const displayError = (element, message) => {
   const showMessage = element.parentElement.querySelector('.form-message');
-
   showMessage.innerText = message;
 };
 
 // Show nothing when value is valid
-const checkSuccess = (element) => {
+const displaySuccess = (element) => {
   const showMessage = element.parentElement.querySelector('.form-message');
-
   showMessage.innerText = '';
+};
+
+// Check email is empty or not (true <-> false)
+const isEmailEmpty = (input) => {
+  if (input == '') {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // Validate email address with regular expressions (Stack Over Flow)
@@ -25,58 +32,66 @@ const validateEmail = (input) => {
   return regExp.test(input);
 };
 
-// Function display inputs to the screen
+// Display user's information to the screen
 const displayInfo = () => {
   let result = '';
-
-  for (i = 0; i < (form.length - 1); i++) {
-    const label = form[i].parentElement.querySelector('label');
-    result += label.textContent + ' ' + form[i].value + '\n';
+  const total = form.length - 1;
+  
+  for (let index = 0; index < total; index++) {
+    const label = form[index].parentElement.querySelector('label');
+    result += label.textContent + ' ' + form[index].value + '\n';
   }
   document.querySelector('.result').innerText = result;
 };
 
-// Validate inputs if submit event is fired
+// Define at least characters to inputs
+const atLeastCharacters = (input) => {
+  input = input - 1;
+  return input;
+};
+
+// Big function: Validate inputs if submit event is fired
 const validateInputs = () => {
   const emailValue = email.value.trim();
   const usernameValue = username.value.trim();
   const passwordValue = password.value.trim();
   const confirmPasswordValue = confirmPassword.value.trim();
+  const isValidCredential = emailValue && usernameValue && passwordValue.length >= 8 && confirmPasswordValue.length >= 8 && passwordValue === confirmPasswordValue;
 
   // Validate email
-  if (emailValue === '') {
-    checkError(email, 'Email address empty or wrong format, example: username@somewhere.sth');
+  if (isEmailEmpty(emailValue)) {
+    displayError(email, 'Email address empty or wrong format, example: username@somewhere.sth');
   } else if (!validateEmail(emailValue)) {
-    checkError(email, 'Provide a valid email address');
+    displayError(email, 'Provide a valid email address');
   } else {
-    checkSuccess(email);
+    displaySuccess(email);
   }
 
-  // Validate user-name, as low as 5 characters
-  if (usernameValue.length <= 4) {
-    checkError(username, 'Please enter the correct format for Username. (No leading or trailing spaces)');
+  // Validate user-name && as least 5 characters
+  if (usernameValue.length <= atLeastCharacters(5)) {
+    displayError(username, 'Please enter the correct format for Username. (No leading or trailing spaces)');
   } else {
-    checkSuccess(username);
+    displaySuccess(username);
   }
 
-  // Validate password, as low as 8 characters
-  if (passwordValue.length < 8) {
-    checkError(password, 'Please enter the correct format for Password. (8 character. at least one non-letter)');
+  // Validate password && as least 8 characters
+  if (passwordValue.length <= atLeastCharacters(8)) {
+    displayError(password, 'Please enter the correct format for Password. (8 character. at least one non-letter)');
   } else {
-    checkSuccess(password);
+    displaySuccess(password);
   }
 
-  // Validate confirm-password
-  if (confirmPasswordValue.length < 8) {
-    checkError(confirmPassword, 'Please enter the correct format for Password. (8 character. at least one non-letter)');
+  // Validate confirm-password && as least 8 characters
+  if (confirmPasswordValue.length <= atLeastCharacters(8)) {
+    displayError(confirmPassword, 'Please enter the correct format for Password. (8 character. at least one non-letter)');
   } else if (confirmPasswordValue !== passwordValue) {
-    checkError(confirmPassword, 'Make sure password and confirm passwords match');
+    displayError(confirmPassword, 'Make sure password and confirm passwords match');
   } else {
-    checkSuccess(confirmPassword);
+    displaySuccess(confirmPassword);
   }
 
   // If all inputs is valid & show detailed user's information
-  if (emailValue && usernameValue && passwordValue.length >= 8 && confirmPasswordValue.length >= 8 && passwordValue === confirmPasswordValue) {
+  if (isValidCredential) {
     displayInfo();
   }
 };
@@ -84,6 +99,5 @@ const validateInputs = () => {
 // Add Event Listener, prevent auto-refresh page action and call function vadidateInputs
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
   validateInputs();
 });
