@@ -3,6 +3,7 @@ let tasks = [];
 const pomodoroForm = document.querySelector('.js-add-task');
 const pomodoroTableBody = document.querySelector('.js-task-table-body');
 
+// Function add new tasks to table body
 const addTask = function(e) {
   e.preventDefault();
 
@@ -45,15 +46,18 @@ const renderTasks = function(tBodyNode, tasks = []) {
 
 // Implement event handlers
 const finishTask = ( tasks, taskId ) => {
-	tasks[ taskId ].finished = true;
+	tasks[taskId].finished = true;
 }
 
 const increasePomodoroDone = ( tasks, taskId ) => {
-	tasks[ taskId ].pomodoroDone += 1;
+	const limit = tasks[taskId].pomodoroCount;
+	if(tasks[taskId].pomodoroDone < limit) {
+		tasks[taskId].pomodoroDone += 1;
+	}
 }
 
 const deleteTask = ( tasks, taskId ) => {
-	tasks.splice( taskId, 1 );
+	tasks.splice(taskId, 1);
 }
 
 const handleTaskButtonClick = function(e) {
