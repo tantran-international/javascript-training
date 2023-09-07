@@ -44,30 +44,25 @@ const renderTasks = function(tBodyNode, tasks = []) {
 };
 
 // Implement event handlers
-const finishTask = (tasks, taskId) => {
-	tasks[taskId].finished = true;
-};
+const finishTask = ( tasks, taskId ) => {
+	tasks[ taskId ].finished = true;
+}
 
-const increasePomodoroDone = (tasks, taskId) => {
-	tasks[taskId].pomodoroDone += 1;
-};
+const increasePomodoroDone = ( tasks, taskId ) => {
+	tasks[ taskId ].pomodoroDone += 1;
+}
 
-const deleteTask = (tasks, taskId) => {
-	tasks.splice(taskId, 1);
-};
+const deleteTask = ( tasks, taskId ) => {
+	tasks.splice( taskId, 1 );
+}
 
 const handleTaskButtonClick = function(e) {
 	const classList = e.target.className;
-	const taskId = e.target.getAttribute('id');
+	const taskId = e.target.getAttribute('data-id');
 
-	// e.target.matches('.js-task-done') ? finishTask(tasks, taskId) :
-	// e.target.matches('.js-increase-pomodoro') ? increasePomodoroDone(tasks, taskId) :
-	// e.target.matches('.js-delete-task') ? deleteTask : null;
-
-	/js-task-done/.test( classList ) ? finishTask( tasks, taskId ) :
-	/js-increase-pomodoro/.test( classList ) ? increasePomodoroDone( tasks, taskId ) :
-	/js-delete-task/.test( classList ) ? deleteTask( tasks, taskId ) :
-	null;
+	e.target.matches('.js-task-done') ? finishTask(tasks, taskId) :
+	e.target.matches('.js-increase-pomodoro') ? increasePomodoroDone(tasks, taskId) :
+	e.target.matches('.js-delete-task') ? deleteTask(tasks, taskId) : null;
 
 	renderTasks(pomodoroTableBody, tasks);
 };
