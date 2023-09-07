@@ -29,7 +29,7 @@ const addTask = function(e) {
 pomodoroForm.addEventListener('submit', addTask);
 
 // -->
-const renderTasks = function(tBodyNode, tasks = []) {
+const renderTasks = (tBodyNode, tasks = []) => {
   tBodyNode.innerHTML = tasks.map((task, id) =>
   `<tr>
       <td class="cell-task-name">${task.taskName}</td>
@@ -47,21 +47,23 @@ const renderTasks = function(tBodyNode, tasks = []) {
 // Implement event handlers
 const finishTask = ( tasks, taskId ) => {
 	tasks[taskId].finished = true;
+	console.log(taskId);
 }
 
 const increasePomodoroDone = ( tasks, taskId ) => {
 	const limit = tasks[taskId].pomodoroCount;
 	if(tasks[taskId].pomodoroDone < limit) {
 		tasks[taskId].pomodoroDone += 1;
+		console.log(taskId);
 	}
 }
 
 const deleteTask = ( tasks, taskId ) => {
 	tasks.splice(taskId, 1);
+	console.log(taskId);
 }
 
 const handleTaskButtonClick = function(e) {
-	const classList = e.target.className;
 	const taskId = e.target.getAttribute('data-id');
 
 	e.target.matches('.js-task-done') ? finishTask(tasks, taskId) :
