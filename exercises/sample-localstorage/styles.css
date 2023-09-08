@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+
+.demo-input {
+	margin: 0 auto 50px;
+	text-align: center;
+	width: fit-content;
+	border: 2px dashed black;
+	padding: 10px;
+}
+
+.output-list {
+	text-align: left;
+}
