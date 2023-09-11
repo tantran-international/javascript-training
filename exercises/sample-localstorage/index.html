@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo Local Storage</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<!--1st Form-->
+	<form class="demo-input" action="">
+		<label for="first-input">When reload page, the text will stays in place until the clear button is clicked</label>
+	<br></br>
+		<input id="first-input" type="text">
+		<p class="output"></p>
+		<button class="clear-text" type="reset">Clear Text</button>
+	</form>
+
+	<!--2nd Form-->
+	<form class="demo-input demo-input-2" action="">
+		<label for="second-input">Add items into list</label>
+		<br></br>
+		<input id="second-input" type="text">
+		<button class="add-items" type="button">Add Item</button>
+		<button class="remove-items" type="button">Remove Item</button>
+		<ul class="output-list"></ul>
+	</form>
+
+	<script src="index.js"></script>
+</body>
+</html>
