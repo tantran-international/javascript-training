@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+.table-menu, .table-cart {
+  width: 500px;
+  border: 1px solid black;
+  margin: 0 0 20px;
+}
