@@ -1,4 +1,4 @@
-import Observer from './observer';
+import Observer from './observer.js';
 
 class MenuView extends Observer {
   constructor() {
@@ -6,7 +6,9 @@ class MenuView extends Observer {
     this.menuList = document.querySelector('.table-menu');
   }
 
-  update() {}
+  update() {
+
+  }
 }
 
 export { MenuView };

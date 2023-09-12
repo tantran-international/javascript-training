@@ -1,4 +1,4 @@
-import Observable from './observable';
+import Observable from './observable.js';
 
 class PaymentModel extends Observable {
   constructor() {
