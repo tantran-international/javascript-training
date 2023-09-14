@@ -3,6 +3,15 @@
 }
 
 table, th, td {
+  margin: 0 0 10px;
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+td {
+  padding: 20px;
+}
+
+.menu-btn {
+  padding: 20px;
 }
