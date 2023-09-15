@@ -4,6 +4,19 @@ class MenuController {
   // MenuView can access model.menuList via this"controller".model.menuList
     this.model = model;
   }
+
+  handleEvent(e) {
+    e.stopPropagation();
+    
+  }
+  
+  addtoCart(amount) {
+    
+  }
+  // get modelMenuTable() {
+  //   return this.model.menuList;
+  // }
+
 }
 
 export { MenuController };

@@ -9,12 +9,17 @@ class MenuView extends Observer {
     this.menuList = document.querySelector('.table-menu');
     // Create Table body first because:
     // The methods insertRow() takes care of creating a tBody only if it is called on an empty Table.
-    this.generateTableBody(this.menuList, controller.model.menuList)
+    this.generateTableBody(this.menuList, controller.model.menuList);
     this.generateTableHead(this.menuList);
     // console.log methods below help me identify exactly objects in the DOM
     // console.log(this.menuList);
     // console.log(this.menuList.lastElementChild.children);
     this.generateButton(this.menuList.lastElementChild.children);
+
+    this.menuButton = document.querySelectorAll('.menu-btn');
+    console.log(this.menuButton);
+    this.menuButton.addEventListener('click', controller, { once: true });
+    // this.menuButton.addEventListener('click', controller);
   }
 
   // Use DOM-appendChild to create table-Head in Table
