@@ -12,7 +12,7 @@ function main() {
   let menuModel = new MenuModel();
   let cartModel = new CartModel();
   let paymentModel = new PaymentModel();
-  let menuController = new MenuController(menuModel);
+  let menuController = new MenuController(menuModel,cartModel);
   let cartController = new CartController(cartModel);
   let paymentController = new PaymentController(paymentModel);
   let menuView = new MenuView(menuController);
