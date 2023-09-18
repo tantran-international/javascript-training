@@ -5,6 +5,11 @@ class CartModel extends Observable {
     super();
     this.cartList = [];
   }
+
+  addItem(item) {
+    this.cartList.push(item);
+    this.notify(this.cartList);
+  }
 }
 
 export { CartModel };

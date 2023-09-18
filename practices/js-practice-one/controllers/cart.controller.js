@@ -1,6 +1,6 @@
 class CartController {
-  constructor(model) {
-    this.model = model;
+  constructor(cartModel) {
+    this.cartModel = cartModel;
   }
 }
 

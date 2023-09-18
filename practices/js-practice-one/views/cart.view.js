@@ -4,8 +4,15 @@ class CartView extends Observer {
   constructor(controller) {
     super();
     this.controller = controller;
+    this.controller.cartModel.addObserver(this);
+
     this.cartList = document.querySelector('.table-cart');
     this.generateTableHead(this.cartList);
+  }
+
+  render(data) {
+
+
   }
 
   generateTableHead(table) {
@@ -17,7 +24,13 @@ class CartView extends Observer {
     th.setAttribute('colspan', 3);
   }
 
-  update() {}
+  generateTableBody(table) {
+
+  }
+
+  // update(data) {
+  //   generateTableHead(data);
+  // }
 }
 
 export { CartView };
