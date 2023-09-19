@@ -37,7 +37,6 @@ class CartModel extends Observable {
 				});
 			}
 		}
-
 		this.notify(this.cartList);
 	}
 }

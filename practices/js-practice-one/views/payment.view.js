@@ -5,11 +5,19 @@ class PaymentView extends Observer {
     super();
     this.controller = controller;
     this.totalPayment = document.querySelector('.total-amount');
-    // display total amount of price to payment view
-    this.totalPayment.innerText = controller.model.totalPayment;
+    // Display total amount of price to payment view
+    this.totalPayment.innerText = controller.paymentCost;
+
+    // Add Event
+    this.checkoutButton = document.querySelector('.btn-checkout');
+    this.checkoutButton.addEventListener('click', this.controller);
+
+    this.controller.paymentModel.addObserver(this);
   }
 
-  update() {}
+  update(model) {
+    this.totalPayment.innerText = model.totalPayment;
+  }
 }
 
 export { PaymentView };

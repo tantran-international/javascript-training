@@ -14,7 +14,7 @@ function main() {
   let paymentModel = new PaymentModel();
   let menuController = new MenuController(menuModel,cartModel);
   let cartController = new CartController(cartModel);
-  let paymentController = new PaymentController(paymentModel);
+  let paymentController = new PaymentController(paymentModel, cartModel);
   let menuView = new MenuView(menuController);
   let cartView = new CartView(cartController);
   let paymentView = new PaymentView(paymentController);
