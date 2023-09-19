@@ -6,32 +6,19 @@ class PaymentController {
 
   handleEvent(e) {
     e.stopPropagation();
+    // Get array of datas from Cart Model
     const cartItem = this.cartModel.cartList;
+
+    // Calculator total price and display to screen when button checkout is clicked
     switch (e.type) {
       case 'click':
-        this.sumCart(cartItem);
+        this.paymentModel.sumCart(cartItem);
         break;
     
       default:
         break;
     }
   }
-
-  get paymentCost() {
-    return this.paymentModel.totalPayment;
-  }
-
-  sumCart(cartItem) {
-    let total = 0;
-    for (let index = 0; index < cartItem.length; index++) {
-      const element = cartItem[index];
-      total += (element.price * element.amount);
-    }
-    this.paymentModel.totalPayment = `${total} vnd`;
-
-    this.paymentModel.notify(this.paymentModel);
-  }
-
 }
 
 export { PaymentController };
