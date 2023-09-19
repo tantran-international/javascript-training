@@ -10,9 +10,30 @@ class CartView extends Observer {
   }
 
   render(data) {
+    // this.cartList = document.querySelector('.table-cart');
+    // this.generateTableBody(this.cartList, data);
+    // this.generateTableHead(this.cartList);
+    
+    // if (this.cartList.length != 0) {
+    //   this.cartList.removeChild(this.cartList.firstElementChild);
+    //   this.cartList.removeChild(this.cartList.lastElementChild);
+    //   console.log(this.cartList.lastElementChild);
+    //   this.generateTableBody(this.cartList, data);
+    //   this.generateTableHead(this.cartList);
+    // }
+    // console.log(this.cartList);
+
+
     this.cartList = document.querySelector('.table-cart');
-    this.generateTableBody(this.cartList, data);
+    // Remove all children of table
+
+    if (data.length !== 0) {
+      this.cartList.removeChild(this.cartList.firstChild);
+    }
+
+    // Render Table Header
     this.generateTableHead(this.cartList);
+
   }
 
   generateTableHead(table) {
@@ -38,14 +59,8 @@ class CartView extends Observer {
   }
 
   update(data) {
-    // Remove thead and tbody node
-    // console.log(this.cartList.lastElementChild);
-    this.cartList.removeChild(this.cartList.firstElementChild);
-    // this.cartList.splice(1, 1);
+    // console.log(this.cartList);
 
-
-    // console.log(this.cartList.lastElementChild);
-    // Re-render Thead and Tbody
     this.render(data);
   }
 }

@@ -7,22 +7,21 @@ class CartModel extends Observable {
 	}
 
 	addItem(menuItem, menuId) {
-		console.log(this.cartList);
 
 		if (this.cartList.length === 0) {
 			this.cartList.push({
 				id: menuId,
 				name: menuItem.name,
-				quantity: 1,
+				amount: 1,
 				price: menuItem.price,
 			});
 		} else {
-			const isExist = false;
+			let isExist = false;
 			for (let index = 0; index < this.cartList.length; index++) {
 				const element = this.cartList[index];
 				if (menuId === element.id) {
 					isExist = true;
-					element.quantity += 1;
+					element.amount += 1;
 					break;
 				}
 			}
@@ -31,7 +30,7 @@ class CartModel extends Observable {
 				this.cartList.push({
 					id: menuId,
 					name: menuItem.name,
-					quantity: 1,
+					amount: 1,
 					price: menuItem.price,
 				});
 			}
