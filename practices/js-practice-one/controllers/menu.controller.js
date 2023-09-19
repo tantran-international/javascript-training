@@ -33,13 +33,6 @@ class MenuController {
 				break;
 		}
 	}
-
-	// addtoCart(amount) {
-
-	// }
-	// // get modelMenuTable() {
-	// //   return this.model.menuList;
-	// // }
 }
 
 export { MenuController };

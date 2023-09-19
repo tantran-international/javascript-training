@@ -37,7 +37,6 @@ class CartView extends Observer {
 			this.cartList = document.querySelector(".table-cart");
 			// remove toan bo child table-cart
 			this.cartList.innerHTML = "";
-
 			this.generateTableHead(this.cartList);
 			this.generateTableBody(this.cartList, data);
 		}
@@ -47,7 +46,7 @@ class CartView extends Observer {
 		const thead = table.createTHead();
 		const row = thead.insertRow();
 		const th = document.createElement("th");
-		th.innerText = "Menu";
+		th.innerText = "Cart";
 		row.appendChild(th);
 		th.setAttribute("colspan", 3);
 	}

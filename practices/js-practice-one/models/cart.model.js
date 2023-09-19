@@ -21,7 +21,9 @@ class CartModel extends Observable {
 				const element = this.cartList[index];
 				if (menuId === element.id) {
 					isExist = true;
-					element.amount += 1;
+					if (element.amount < 10) {
+            element.amount += 1;
+          }
 					break;
 				}
 			}
