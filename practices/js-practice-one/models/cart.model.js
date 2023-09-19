@@ -1,28 +1,44 @@
-import Observable from './observable.js';
+import Observable from "./observable.js";
 
 class CartModel extends Observable {
-  constructor() {
-    super();
-    this.cartList = [];
-  }
+	constructor() {
+		super();
+		this.cartList = [];
+	}
 
-  addItem(menuItem, menuId) {
-    console.log(this.cartList);
+	addItem(menuItem, menuId) {
+		console.log(this.cartList);
 
-    if (this.cartList.length === 0) {
-      this.cartList.push(menuItem);
-    } else {
-      for (let index = 0; index < this.cartList.length; index++) {
-        const element = this.cartList[index];
-        if (menuId != element.id) {
-          console.log(index);
-          this.cartList.push(menuItem);
-        }
-      }
-    }
+		if (this.cartList.length === 0) {
+			this.cartList.push({
+				id: menuId,
+				name: menuItem.name,
+				quantity: 1,
+				price: menuItem.price,
+			});
+		} else {
+			const isExist = false;
+			for (let index = 0; index < this.cartList.length; index++) {
+				const element = this.cartList[index];
+				if (menuId === element.id) {
+					isExist = true;
+					element.quantity += 1;
+					break;
+				}
+			}
 
-    this.notify(this.cartList);
-  }
+			if (!isExist) {
+				this.cartList.push({
+					id: menuId,
+					name: menuItem.name,
+					quantity: 1,
+					price: menuItem.price,
+				});
+			}
+		}
+
+		this.notify(this.cartList);
+	}
 }
 
 export { CartModel };
@@ -30,4 +46,4 @@ export { CartModel };
 // if (this.cartList.length == 0 || item.id != element.id) {
 //   this.cartList.push(item);
 //   this.notify(this.cartList);
-// }    
+// }
