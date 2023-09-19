@@ -8,27 +8,28 @@ class MenuController {
 
   handleEvent(e) {
     e.stopPropagation();
-    // console.log(e.target.getAttribute('menuId'));
     const menuId = e.target.getAttribute('menuId');
-    const item = this.menuModel.getItem(menuId);
+    const menuItem = this.menuModel.getItem(menuId);
+    // console.log(menuId);
 
     switch (menuId) {
       case '0':
         this.menuModel.decrease(menuId);
-        this.cartModel.addItem(item);
-        console.log(item);
+        this.cartModel.addItem(menuItem, menuId);
+        // console.log(menuItem);
+        // console.log(this.cartModel);
         break;
 
       case '1':
         this.menuModel.decrease(menuId);
-        this.cartModel.addItem(item);
-        console.log(item);
+        this.cartModel.addItem(menuItem, menuId);
+        // console.log(menuItem);
         break;
 
       case '2':
         this.menuModel.decrease(menuId);
-        this.cartModel.addItem(item);
-        console.log(item);
+        this.cartModel.addItem(menuItem, menuId);
+        // console.log(menuItem);
         break;
 
       default:
@@ -36,12 +37,12 @@ class MenuController {
     }
   }
 
-  addtoCart(amount) {
+  // addtoCart(amount) {
 
-  }
-  // get modelMenuTable() {
-  //   return this.model.menuList;
   // }
+  // // get modelMenuTable() {
+  // //   return this.model.menuList;
+  // // }
 
 }
 
