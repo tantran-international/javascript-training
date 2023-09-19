@@ -37,8 +37,9 @@ class CartView extends Observer {
 			this.cartList = document.querySelector(".table-cart");
 			// remove toan bo child table-cart
 			this.cartList.innerHTML = "";
-			this.generateTableHead(this.cartList);
 			this.generateTableBody(this.cartList, data);
+			this.generateTableHead(this.cartList);
+	
 		}
 	}
 
