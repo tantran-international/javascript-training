@@ -34,15 +34,14 @@ class CartView extends Observer {
 		// this.generateTableHead(this.cartList);
 		// console.log(data);
 		// console.log(data.length);
-		if (data.lenght !== 0) {
-			this.cartList = document.querySelector(".table-cart");
-			console.log(this.cartList);
-			// remove toan bo child table-cart
-			this.cartList.innerHTML = "";
-			this.generateTableBody(this.cartList, data);
-			this.generateTableHead(this.cartList);
-			// this.generateQuantityColumn(this.cartList, data);
-		}
+		this.cartList = document.querySelector(".table-cart");
+		console.log(data.length);
+		// remove toan bo child table-cart
+		this.cartList.innerHTML = "";
+		this.generateTableBody(this.cartList, data);
+		this.generateTableHead(this.cartList);
+		// this.generateQuantityColumn(this.cartList, data);
+
 	}
 
 	generateTableHead(table) {
