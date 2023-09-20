@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu-cart table</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+
+<body>
+  <!--Menu Table-->
+  <table class="table-menu"></table>
+
+  <!--Cart Table-->
+  <table class="table-cart"></table>
+
+  <!--Payment amount-->
+  <button class="btn-checkout" type="button">Checkout</button>
+  <span class="total-amount"></span>
+
+  <script type="module" src="./src/index.js"></script>
+  <script type="module" src="./controllers/menu.controller.js"></script>
+  <script type="module" src="./controllers/cart.controller.js"></script>
+  <script type="module" src="./controllers/payment.controller.js"></script>
+  <script type="module" src="./models/menu.model.js"></script>
+  <script type="module" src="./models/cart.model.js"></script>
+  <script type="module" src="./models/payment.model.js"></script>
+  <script type="module" src="./models/observable.js"></script>
+  <script type="module" src="./views/menu.view.js"></script>
+  <script type="module" src="./views/cart.view.js"></script>
+  <script type="module" src="./views/payment.view.js"></script>
+  <script type="module" src="./views/observer.js"></script>
+</body>
+
+</html>
