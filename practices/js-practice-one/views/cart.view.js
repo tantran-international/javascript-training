@@ -32,14 +32,16 @@ class CartView extends Observer {
 
 		// // Render Table Header
 		// this.generateTableHead(this.cartList);
-
+		// console.log(data);
+		// console.log(data.length);
 		if (data.lenght !== 0) {
 			this.cartList = document.querySelector(".table-cart");
+			console.log(this.cartList);
 			// remove toan bo child table-cart
 			this.cartList.innerHTML = "";
 			this.generateTableBody(this.cartList, data);
 			this.generateTableHead(this.cartList);
-	
+			// this.generateQuantityColumn(this.cartList, data);
 		}
 	}
 
@@ -53,12 +55,16 @@ class CartView extends Observer {
 	}
 
 	generateTableBody(table, data) {
-		for (const element of data) {
-			let row = table.insertRow();
+		for (let index = 0; index < data.length; index++) {
+			const element = data[index];
+			const row = table.insertRow();
+			const cell = row.insertCell();
+			const sequence = document.createTextNode(index + 1);
+			cell.appendChild(sequence);
 			for (const key in element) {
 				if (key == "name" || key == "amount") {
-					let cell = row.insertCell();
-					let text = document.createTextNode(element[key]);
+					const cell = row.insertCell();
+					const text = document.createTextNode(element[key]);
 					cell.appendChild(text);
 				}
 			}
@@ -66,8 +72,6 @@ class CartView extends Observer {
 	}
 
 	update(data) {
-		// console.log(this.cartList);
-
 		this.render(data);
 	}
 }
