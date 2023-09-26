@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban</title>
+  <link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+
+<body>
+  <section class="Tasks">
+    <div class="container">
+
+      <div class="header-wrapper">
+        <div class="header-logo">
+          <img src="./assets/images/header-logo.svg" alt="Main-logo">
+        </div>
+
+        <h1 class="header-title">To-Do List</h1>
+      </div>
+
+      <div class="modal-container">
+        <div class="modal-update"></div>
+      </div>
+
+      <div class="modal-container">
+        <div class="modal-update"></div>
+      </div>
+
+      <div class="column-status-wrapper">
+        <!--To-do list-->
+        <div class="column-status">
+          <div class="icon-status">
+            <img src="./assets/images/task-logo.svg" alt="task-logo">
+          </div>
+          <span class="column-title">To&minus;Do</span>
+          <ul class="todo-list"></ul>
+        </div>
+
+        <!--In-progress list-->
+        <div class="column-status">
+          <div class="icon-status">
+            <img src="./assets/images/task-logo.svg" alt="task-logo">
+          </div>
+          <span class="column-title">In&minus;Progress</span>
+          <ul class="in-progress-list"></ul>
+        </div>
+
+        <!--Done list-->
+        <div class="column-status">
+          <div class="icon-status">
+            <img src="./assets/images/task-done-logo.svg" alt="task-logo">
+          </div>
+          <span class="column-title">Done</span>
+          <ul class="done-list"></ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>
