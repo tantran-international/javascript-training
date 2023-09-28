@@ -7,7 +7,7 @@ class InprogressView extends Observer {
     this.taskView = taskView;
 
     // Render Inprogress Tasks
-    this.render(this.taskController.taskModel.tasks.inprogress);
+    this.render(this.taskController.taskModel.tasks.inprogresss);
 
     this.btnAddTodo = document.querySelector('.btn-add-inprogress');
     this.btnAddTodo.addEventListener('click', () => { console.log('Test-Add-Inprogress') });
