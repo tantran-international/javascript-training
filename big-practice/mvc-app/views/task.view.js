@@ -1,5 +1,5 @@
 import Observer from './observer.js';
-import trash from '../../assets/images/trash.svg';
+import trashIcon from '../../assets/images/trash.svg';
 
 class TaskView extends Observer {
   constructor(taskController) {
@@ -13,14 +13,15 @@ class TaskView extends Observer {
   renderTask(data) {
     const li = document.createElement('li');
     li.innerHTML = `
-          <div>
+          <div data-id="${data.id}" data-status="${data.status}s">
           <h3>${data.title}</h3>
           <p>${data.createAt}</p>
           <button class="btn-trash" type="button" alt="delete-button">
-          <img src="${trash}">
+          <img class="img-trash" src="${trashIcon}">
           </button>
           </div>
           `;
+          // li.setAttribute('data-id', data.id);
     return li;
   }
 }
