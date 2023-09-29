@@ -30,14 +30,15 @@
 
       <div class="modal-container modal-update-wrapper">
         <div class="modal-update">
-          <h2 class="modal-update-title">Update</h2>
+          <h2 class="modal-update-title"></h2>
           <input class="input-title" type="text" value="">
           <p class="create-at"></p>
           <p class="update-at"></p>
           <select class="status" id="status" name="status">
-            <option class="status-todo" value="todo">To-do</option>
-            <option class="status-inprogress" value="inprogress">In-Progress</option>
-            <option class="status-done" value="Done">Done</option>
+            <option value="">Choose a status</option>
+            <option value="todo">To-do</option>
+            <option value="inprogress">In-Progress</option>
+            <option value="done">Done</option>
           </select>
           <button class="btn-close" type="button">Cancel</button>
           <button class="btn-confirm" type="button">Confirm</button>
@@ -52,7 +53,7 @@
           </div>
           <span class="column-title">To&minus;Do</span>
           <button class="btn-add-todo" type="button">
-            <img src="./assets/images/plus-btn.svg" alt="add-new-button">
+            <img class="img-add-todo" src="./assets/images/plus-btn.svg" alt="add-new-button">
           </button>
           <ul class="todo-list"></ul>
         </div>
@@ -64,7 +65,7 @@
           </div>
           <span class="column-title">In&minus;Progress</span>
           <button class="btn-add-inprogress" type="button">
-            <img src="./assets/images/plus-btn.svg" alt="add-new-button">
+            <img class="img-add-inprogress" src="./assets/images/plus-btn.svg" alt="add-new-button">
           </button>
           <ul class="inprogress-list"></ul>
         </div>
@@ -76,7 +77,7 @@
           </div>
           <span class="column-title">Done</span>
           <button class="btn-add-done" type="button">
-            <img src="./assets/images/plus-btn.svg" alt="add-new-button">
+            <img class="img-add-done" src="./assets/images/plus-btn.svg" alt="add-new-button">
           </button>
           <ul class="done-list"></ul>
         </div>
