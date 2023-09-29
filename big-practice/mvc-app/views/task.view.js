@@ -13,16 +13,18 @@ class TaskView extends Observer {
   renderTask(data) {
     const li = document.createElement('li');
     li.innerHTML = `
-          <div data-id="${data.id}" data-status="${data.status}s">
+          <div class="task" data-id="${data.id}" data-status="${data.status}s">
           <h3>${data.title}</h3>
-          <p>${data.createAt}</p>
+          <p class="create-time"></p>
+          <p class="update-time"></p>
           <button class="btn-trash" type="button" alt="delete-button">
           <img class="img-trash" src="${trashIcon}">
           </button>
           </div>
           `;
-          // li.setAttribute('data-id', data.id);
     return li;
+    // <p>Create at: ${date.getHours()}:${date.getMinutes()} (${date.toDateString()})</p>
+    // <p>Update at: ${date.getHours()}:${date.getMinutes()} (${date.toDateString()})</p>
   }
 }
 
