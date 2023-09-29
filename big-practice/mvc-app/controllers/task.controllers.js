@@ -3,22 +3,20 @@ class TaskController {
     this.taskModel = taskModel;
   }
 
-
-  openModal(e) {
-    // const updateModal = document.querySelector('.modal-update-wrapper');
-    // updateModal.classList.add('show');
-    // // const dataId = e.target.getAttribute('data-id');
-    // // const dataStatus = e.target.getAttribute('data-status');
-    // // const listItem = this.taskModel.getItem(dataId, dataStatus);
-    // console.log(e);
+  addNewTask(modal) {
+    const inputTitle = modal.querySelector('.input-title');
+    const createAt = modal.querySelector('.create-at');
+    const updateAt = modal.querySelector('.update-at');
+    const status = modal.querySelector('.status');
+    // console.log(inputTitle.value);
+    // console.log(createAt.textContent);
+    // console.log(updateAt.textContent);
+    // console.log(status.value);
+    this.taskModel.addItem(inputTitle, createAt, updateAt, status);
   }
 
-  hideModal(e) {
-    // const updateModal = document.querySelector('.modal-update-wrapper');
-    // const btnClose = document.querySelector('.btn-close');
-    // if (e.target == updateModal || e.target == btnClose) {
-    //   updateModal.classList.remove('show');
-    // }
+  updateNewTask(modal) {
+    console.log('updated');
   }
 }
 
