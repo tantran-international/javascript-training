@@ -8,15 +8,25 @@ class TodoView extends Observer {
     this.modalUpdateView = modalUpdateView;
 
     // Render Todo Tasks
-    this.render(this.taskController.taskModel.tasks.todos);
+    this.render(this.taskController.taskModel.tasks);
 
     // Show pop-up screen
-    this.btnAddTodo = document.querySelector('.btn-add-todo');
-    this.btnAddTodo.addEventListener('click', (e) => { this.openModal(e); });
+    this.imgAddTodo = document.querySelector('.img-add-todo');
+    this.imgAddTodo.addEventListener('click', (e) => { this.openModal(e); });
 
     // Hidden pop-up screen
     this.modalContainer = document.querySelector('.modal-update-wrapper');
     this.modalContainer.addEventListener('click', (e) => { this.hideModal(e); });
+
+    // Add event for trash btn
+    this.trashBtn = document.querySelectorAll('.img-trash');
+
+    for (let index = 0; index < this.trashBtn.length; index++) {
+      const element = this.trashBtn[index];
+      element.addEventListener('click', () => {
+        console.log('deleted');
+      });
+    }
 
     // Add TodoView to Observers array
     this.taskController.taskModel.addObserver(this);
@@ -24,29 +34,44 @@ class TodoView extends Observer {
 
   render(data) {
     const todoList = document.querySelector('.todo-list');
-    for (let index = 0; index < data.length; index++) {
-      let itemData = data[index];
-      let listItem = todoList.appendChild(this.taskView.renderTask(itemData));
-      listItem.addEventListener('click', (e) => {
-        // this.taskController.taskModel.getItem();
-        this.openModal(e);
-        this.modalUpdateView.renderModal();
-      });
+    todoList.innerHTML = "";
+    for (const key in data) {
+      if (key == 'todos') {
+        let dataList = data[key];
+        for (let index = 0; index < dataList.length; index++) {
+          let itemData = dataList[index];
+          let listItem = todoList.appendChild(this.taskView.renderTask(itemData));
+          listItem.addEventListener('click', (e) => { this.openModal(e); });
+        }
+      }
     }
   }
 
   openModal(e) {
+    // Conditions for display Modal
     const updateModal = document.querySelector('.modal-update-wrapper');
-    updateModal.classList.add('show');
+    const tasks = document.querySelectorAll('.task');
+    for (let index = 0; index < tasks.length; index++) {
+      const element = tasks[index];
+      if (e.target == tasks[index] || e.target == this.imgAddTodo) {
+        updateModal.classList.add('show');
+      }
+    }
+
+    // Conditions for render Modal
     const dataId = e.target.getAttribute('data-id');
     const dataStatus = e.target.getAttribute('data-status');
     const listItem = this.taskController.taskModel.getItem(dataId, dataStatus);
-    console.log(listItem);
-    this.modalUpdateView.renderModal(listItem);
-    const status = document.querySelector('.status-inprogress');
-    const bigStatus = document.querySelector('.status');
-    console.log(bigStatus);
-    status.setAttribute('selected', '');
+    const status = document.querySelector('.status');
+    // const trashBtn = document.querySelectorAll('.img-trash');
+
+    if (e.target != this.imgAddTodo) {
+      this.modalUpdateView.renderModal(listItem);
+      status.value = listItem.status;
+    } else {
+      this.modalUpdateView.renderModal();
+      status.value = "";
+    }
   }
 
   hideModal(e) {
@@ -58,7 +83,9 @@ class TodoView extends Observer {
     }
   }
 
-  update() { }
+  update(data) {
+    this.render(data);
+  }
 }
 
 export { TodoView };
