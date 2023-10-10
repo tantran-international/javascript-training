@@ -1,20 +1,26 @@
 import { TaskModel } from "./models/task.model.js";
-import { TaskController } from "./controllers/task.controllers.js";
-import { TaskView } from "./views/task.view.js";
-import { TodoView } from "./views/todo.view.js";
-import { InprogressView } from "./views/inprogress.view.js";
-import { DoneView } from "./views/done.view.js";
-import { ModalUpdateView } from "./views/modal.update.view.js";
+import { TaskController, TaskController } from "./controllers/task.controller";
+import { ColumnView } from "./views/column.view.js";
+import { TaskModalView } from "./views/task-modal.view.js";
+import { ConfirmModalView } from "./views/confirm-modal.view.js";
 
 function main() {
   let taskModel = new TaskModel();
   let taskController = new TaskController(taskModel);
-  let taskView = new TaskView(taskController);
-  let modalUpdateView = new ModalUpdateView(taskController);
-  let todoView = new TodoView(taskController, taskView, modalUpdateView, modalUpdateView);
-  let inprogressView = new InprogressView(taskController, taskView, modalUpdateView);
-  let doneView = new DoneView(taskController, taskView, modalUpdateView);
 
+  // Column's Views
+  let todoView = new ColumnView(taskController, 'todo');
+  let inprogressView = new ColumnView(taskController, 'inprogress');
+  let doneView = new ColumnView(taskController, 'done');
+
+  // Modal's Views
+  let addAndUpdateModalView = new TaskModalView(taskController);
+  let confirmModalView = new ConfirmModalView(taskController);
+
+  // Render current tasks from Local Storage when load page
+  window.addEventListener("load", async () => {
+		taskController.readData();
+  });
 }
 
 main();
