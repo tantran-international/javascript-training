@@ -1,6 +1,6 @@
 import { JsonServerService } from "../services/json-server-service.js";
 
-class TaskController {
+class ColumnController {
   constructor(model) {
     this.model = model;
     this.JsonServerService = new JsonServerService();
@@ -52,4 +52,4 @@ class TaskController {
   }
 }
 
-export { TaskController };
+export { ColumnController };

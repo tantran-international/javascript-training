@@ -1,25 +1,25 @@
-import { TaskModel } from "./models/task.model.js";
-import { TaskController, TaskController } from "./controllers/task.controller";
-import { ColumnView } from "./views/column.view.js";
-import { TaskModalView } from "./views/task-modal.view.js";
-import { ConfirmModalView } from "./views/confirm-modal.view.js";
+import { ColumnModel } from './models/column.model';
+import { ColumnController } from './controllers/column.controllers';
+import { ColumnView } from './views/column.view.js';
+import { ConfirmModalView } from './views/confirm.modal.view.js';
+import { EditModalView } from './views/edit.modal.view.js';
 
 function main() {
-  let taskModel = new TaskModel();
-  let taskController = new TaskController(taskModel);
+  let columnModel = new ColumnModel();
+  let columnController = new ColumnController(columnModel);
 
   // Column's Views
-  let todoView = new ColumnView(taskController, 'todo');
-  let inprogressView = new ColumnView(taskController, 'inprogress');
-  let doneView = new ColumnView(taskController, 'done');
+  let todoView = new ColumnView(columnController, 'todo');
+  let inprogressView = new ColumnView(columnController, 'inprogress');
+  let doneView = new ColumnView(columnController, 'done');
 
   // Modal's Views
-  let addAndUpdateModalView = new TaskModalView(taskController);
-  let confirmModalView = new ConfirmModalView(taskController);
+	let confirmModalView = new ConfirmModalView(columnController);
+	let editModalView = new EditModalView(columnController);
 
   // Render current tasks from Local Storage when load page
-  window.addEventListener("load", async () => {
-		taskController.readData();
+  window.addEventListener('load', async () => {
+		columnController.readData();
   });
 }
 

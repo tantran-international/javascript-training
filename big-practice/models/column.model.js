@@ -1,6 +1,6 @@
 import Observable from './observable.js';
 
-class TaskModel extends Observable {
+class ColumnModel extends Observable {
   constructor() {
     super();
     this.taskDatas = {
@@ -88,4 +88,4 @@ class TaskModel extends Observable {
   }
 }
 
-export { TaskModel };
+export { ColumnModel };

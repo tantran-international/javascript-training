@@ -1,7 +1,7 @@
 import Observer from './observer.js';
-import { NEW_TASK, UPDATE_TASK } from "../constants/actions.js";
+import { ACTIONS } from '../constants/actions.js';
 
-class TaskModalView extends Observer {
+class EditModalView extends Observer {
   constructor(taskController) {
     super();
     this.taskController = taskController;
@@ -16,7 +16,7 @@ class TaskModalView extends Observer {
     // Hide Modal when click on outside
     this.updateModalWrapper.addEventListener('click', (event) => {
       if (event.target == this.updateModalWrapper) {
-        this.updateModalWrapper.classList.remove("show");
+        this.updateModalWrapper.classList.remove('show');
       }
     });
 
@@ -29,9 +29,9 @@ class TaskModalView extends Observer {
         <p class='update-at'></p>
         <div class='modal-function-wrapper'>
           <select class='input-status' id='status' name='status'>
-            <option value="todo">To-do</option>
-            <option value="inprogress">In-Progress</option>
-            <option value="done">Done</option>
+            <option value='todo'>To-do</option>
+            <option value='inprogress'>In-Progress</option>
+            <option value='done'>Done</option>
           </select>
           <div>
             <button class='btn-modal btn-cancel'>Cancel</button>
@@ -42,15 +42,15 @@ class TaskModalView extends Observer {
       `;
 
     // Hide modal when click Cancel
-    this.btnCancel = document.querySelector(".btn-cancel");
-    this.btnCancel.addEventListener("click", () => {
+    this.btnCancel = document.querySelector('.btn-cancel');
+    this.btnCancel.addEventListener('click', () => {
       this.updateModal.removeAttribute('data-id');
-      this.updateModalWrapper.classList.remove("show");
+      this.updateModalWrapper.classList.remove('show');
     });
 
     // Execute action when click confirm button
-    this.btnConfirm = document.querySelector(".btn-confirm");
-    this.btnConfirm.addEventListener("click", async () => {
+    this.btnConfirm = document.querySelector('.btn-confirm');
+    this.btnConfirm.addEventListener('click', async () => {
       if (this.updateModal.getAttribute('data-id') == null) {
         this.currentAction = NEW_TASK
         if (this.inputTitle.value.trim() == '') {
@@ -63,7 +63,7 @@ class TaskModalView extends Observer {
             createDate.toString(),
             createDate.toString()
           );
-          this.updateModalWrapper.classList.remove("show");
+          this.updateModalWrapper.classList.remove('show');
         }
       } else {
         this.currentAction = UPDATE_TASK
@@ -80,13 +80,13 @@ class TaskModalView extends Observer {
             updateDate.toString()
           );
           this.updateModal.removeAttribute('data-id');
-          this.updateModalWrapper.classList.remove("show");
+          this.updateModalWrapper.classList.remove('show');
         }
       }
     });
-    this.updateModalTitle = document.querySelector(".modal-title");
-    this.inputStatus = document.querySelector(".input-status");
-    this.inputTitle = document.querySelector(".input-title");
+    this.updateModalTitle = document.querySelector('.modal-title');
+    this.inputStatus = document.querySelector('.input-status');
+    this.inputTitle = document.querySelector('.input-title');
 
     // Trigger Button Confirm on Enter
     this.inputTitle.addEventListener('keydown', (event) => {
@@ -98,25 +98,25 @@ class TaskModalView extends Observer {
 
 
   update(data) {
-    if (data.hasOwnProperty("action")) {
+    if (data.hasOwnProperty('action')) {
       switch (data.action) {
-        case "NEW_TASK":
+        case 'NEW_TASK':
           {
             this.currentAction = NEW_TASK;
 
-            this.inputTitle.value = "";
+            this.inputTitle.value = '';
             this.inputStatus.value = data.status;
 
-            this.updateModalTitle.innerHTML = "Add New Task";
-            this.btnConfirm.innerHTML = "Add";
-            this.updateModalWrapper.classList.add("show");
+            this.updateModalTitle.innerHTML = 'Add New Task';
+            this.btnConfirm.innerHTML = 'Add';
+            this.updateModalWrapper.classList.add('show');
             setTimeout(() => {
               this.inputTitle.focus();
             }, 100);
           }
           break;
 
-        case "UPDATE_TASK":
+        case 'UPDATE_TASK':
           {
             this.currentAction = UPDATE_TASK;
 
@@ -129,9 +129,9 @@ class TaskModalView extends Observer {
             this.inputTitle.value = data.task.title;
             this.inputStatus.value = data.task.status;
 
-            this.updateModalTitle.innerHTML = "Update Task";
-            this.btnConfirm.innerHTML = "Confirm";
-            this.updateModalWrapper.classList.add("show");
+            this.updateModalTitle.innerHTML = 'Update Task';
+            this.btnConfirm.innerHTML = 'Confirm';
+            this.updateModalWrapper.classList.add('show');
             setTimeout(() => {
               this.inputTitle.focus();
             }, 100);
@@ -142,4 +142,4 @@ class TaskModalView extends Observer {
   }
 }
 
-export { TaskModalView };
+export { EditModalView };

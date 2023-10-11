@@ -1,5 +1,5 @@
-import Observer from "./observer.js";
-import { DELETE_TASK } from "../constants/actions.js";
+import Observer from './observer.js';
+import { ACTIONS } from '../constants/actions.js';
 
 class ConfirmModalView extends Observer {
   constructor(taskController) {
@@ -47,7 +47,7 @@ class ConfirmModalView extends Observer {
 
 
   update(data) {
-    if (data.hasOwnProperty("action")) {
+    if (data.hasOwnProperty('action')) {
       if (data.action == 'DELETE_TASK') {
         this.currentAction = DELETE_TASK;
         this.taskId = data.task.getAttribute('data-id');

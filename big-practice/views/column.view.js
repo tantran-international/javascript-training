@@ -1,5 +1,5 @@
 import Observer from './observer.js';
-import trashIcon from '../../assets/images/trash.svg';
+import trashIcon from '../assets/images/icons/trash-icon.svg';
 
 class ColumnView extends Observer {
   constructor(taskController, status) {
@@ -16,9 +16,9 @@ class ColumnView extends Observer {
       this.taskController.openAddModal(this.status);
     });
 
-		window.addEventListener("load", async () => {
-			taskController.readData(this.status);
-		});
+		// window.addEventListener("load", async () => {
+		// 	taskController.readData(this.status);
+		// });
 
     this.taskController.model.addObserver(this);
   }
