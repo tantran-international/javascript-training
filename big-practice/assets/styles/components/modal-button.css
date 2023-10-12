@@ -1,0 +1,18 @@
+.btn-modal {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-confirm {
+  color: var(--white);
+  background-color: green;
+  margin: 0 0 0 5px;
+}
+
+.btn-confirm-delete {
+  color: var(--white);
+  background-color: green;
+  margin: 0 0 0 10px;
+}

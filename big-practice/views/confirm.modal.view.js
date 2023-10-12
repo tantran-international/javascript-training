@@ -1,17 +1,16 @@
-import Observer from "./observer.js";
-import { DELETE_TASK } from "../constants/actions.js";
+import Observer from './observer.js';
+import { ACTIONS } from '../constants/actions.js';
 
 class ConfirmModalView extends Observer {
-  constructor(taskController) {
+  constructor(columnController) {
     super();
-    this.taskController = taskController;
-    this.currentAction = DELETE_TASK;
+    this.columnController = columnController;
+    this.currentAction = ACTIONS.DELETE;
     this.confirmModalWrapper = document.querySelector('.modal-confirm-wrapper');
     this.renderConfirmModal();
     this.confirmModal = document.querySelector('.modal-confirm')
-    this.taskController.model.addObserver(this);
+    this.columnController.model.addObserver(this);
   }
-
 
   // Render default layout of Confirm Modal and add Event Listener for buttons
   renderConfirmModal() {
@@ -40,16 +39,16 @@ class ConfirmModalView extends Observer {
     // Execute action when click confirm button
     this.btnConfirmDelete = document.querySelector('.btn-confirm-delete');
     this.btnConfirmDelete.addEventListener('click', async () => {
-      await this.taskController.deleteData(this.taskId, this.taskStatus);
+      await this.columnController.deleteData(this.taskId, this.taskStatus);
       this.confirmModalWrapper.classList.remove('show');
     });
   }
 
 
   update(data) {
-    if (data.hasOwnProperty("action")) {
+    if (data.hasOwnProperty('action')) {
       if (data.action == 'DELETE_TASK') {
-        this.currentAction = DELETE_TASK;
+        this.currentAction = ACTIONS.DELETE;
         this.taskId = data.task.getAttribute('data-id');
         this.taskStatus = data.task.getAttribute('data-status');
         this.confirmModalWrapper.classList.add('show');

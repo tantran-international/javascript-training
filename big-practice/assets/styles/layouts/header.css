@@ -1,0 +1,23 @@
+.main-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header-logo-wrapper {
+  width: 68px;
+  height: 68px;
+}
+
+.header-logo {
+  width: 100%;
+  height: auto;
+}
+
+.header-title {
+  color: var(--white);
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

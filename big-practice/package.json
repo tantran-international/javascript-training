@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+		"server": "json-server --watch server/database.json",
     "start": "rm -rf .parcel-cache && rm -rf dist && parcel index.html",
     "build": "parcel build"
   },

@@ -1,6 +1,6 @@
 import Observable from './observable.js';
 
-class TaskModel extends Observable {
+class ColumnModel extends Observable {
   constructor() {
     super();
     this.taskDatas = {
@@ -74,18 +74,18 @@ class TaskModel extends Observable {
 
 
   openAddModal(status) {
-    this.notify({ action: "NEW_TASK", status: status });
+    this.notify({ action: 'NEW_TASK', status: status });
   }
 
 
   openUpdateModal(task) {
-    this.notify({ action: "UPDATE_TASK", task: task });
+    this.notify({ action: 'UPDATE_TASK', task: task });
   }
 
 
   openConfirmModal(task, event) {
-    this.notify({ action: "DELETE_TASK", task: task });
+    this.notify({ action: 'DELETE_TASK', task: task });
   }
 }
 
-export { TaskModel };
+export { ColumnModel };

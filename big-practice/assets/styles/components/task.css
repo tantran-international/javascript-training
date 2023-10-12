@@ -1,0 +1,46 @@
+.task {
+  margin: 24px 0;
+  padding: 18px;
+  background: var(--white-pearl);
+  position: relative;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  cursor: pointer;
+}
+
+.task-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--black);
+  width: fit-content;
+  height: fit-content;
+  word-break: break-all;
+}
+
+.task-date {
+  font-size: 15px;
+  color: var(--primary-color);
+}
+
+.create-date {
+  margin: 0 0 8px;
+}
+
+.trash-btn {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.trash-img {
+  width: 30px;
+  height: auto;
+}
