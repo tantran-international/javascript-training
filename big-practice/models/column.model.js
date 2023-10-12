@@ -74,17 +74,17 @@ class ColumnModel extends Observable {
 
 
   openAddModal(status) {
-    this.notify({ action: "NEW_TASK", status: status });
+    this.notify({ action: 'NEW_TASK', status: status });
   }
 
 
   openUpdateModal(task) {
-    this.notify({ action: "UPDATE_TASK", task: task });
+    this.notify({ action: 'UPDATE_TASK', task: task });
   }
 
 
   openConfirmModal(task, event) {
-    this.notify({ action: "DELETE_TASK", task: task });
+    this.notify({ action: 'DELETE_TASK', task: task });
   }
 }
 

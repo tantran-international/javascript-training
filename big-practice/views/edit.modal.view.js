@@ -2,13 +2,13 @@ import Observer from './observer.js';
 import { ACTIONS } from '../constants/actions.js';
 
 class EditModalView extends Observer {
-  constructor(taskController) {
+  constructor(columnController) {
     super();
-    this.taskController = taskController;
-    this.updateModalWrapper = document.querySelector('.modal-update-wrapper');
+    this.columnController = columnController;
+    this.updateModalWrapper = document.querySelector('.modal-edit-wrapper');
     this.renderModal();
-    this.updateModal = document.querySelector('.modal-update');
-    this.taskController.model.addObserver(this);
+    this.updateModal = document.querySelector('.modal-edit');
+    this.columnController.model.addObserver(this);
   }
 
 
@@ -22,7 +22,7 @@ class EditModalView extends Observer {
 
     // Render
     this.updateModalWrapper.innerHTML = `
-      <div class='modal-update'>
+      <div class='modal-edit'>
         <h3 class='modal-title'>Add new Task</h3>
         <input class='input-title' type='text' value='' placeholder='Insert new title'>
         <p class='create-at'></p>
@@ -52,12 +52,12 @@ class EditModalView extends Observer {
     this.btnConfirm = document.querySelector('.btn-confirm');
     this.btnConfirm.addEventListener('click', async () => {
       if (this.updateModal.getAttribute('data-id') == null) {
-        this.currentAction = NEW_TASK
+        this.currentAction = ACTIONS.ADD;
         if (this.inputTitle.value.trim() == '') {
           alert('Input is Empty!');
         } else {
           const createDate = new Date();
-          await this.taskController.addNewData(
+          await this.columnController.addNewData(
             this.inputTitle.value,
             this.inputStatus.value,
             createDate.toString(),
@@ -66,12 +66,12 @@ class EditModalView extends Observer {
           this.updateModalWrapper.classList.remove('show');
         }
       } else {
-        this.currentAction = UPDATE_TASK
+        this.currentAction = ACTIONS.UPDATE;
         if (this.inputTitle.value.trim() == '') {
           alert('Input is Empty!');
         } else {
           const updateDate = new Date();
-          await this.taskController.updateData(
+          await this.columnController.updateData(
             this.taskId,
             this.currentStatus,
             this.inputTitle.value,
@@ -102,7 +102,7 @@ class EditModalView extends Observer {
       switch (data.action) {
         case 'NEW_TASK':
           {
-            this.currentAction = NEW_TASK;
+            this.currentAction = ACTIONS.NEW_TASK;
 
             this.inputTitle.value = '';
             this.inputStatus.value = data.status;
@@ -118,7 +118,7 @@ class EditModalView extends Observer {
 
         case 'UPDATE_TASK':
           {
-            this.currentAction = UPDATE_TASK;
+            this.currentAction = ACTIONS.UPDATE_TASK;
 
             this.updateModal.setAttribute('data-id', `${data.task.id}`);
 

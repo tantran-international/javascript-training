@@ -18,9 +18,6 @@ class JsonServerService {
   }
 
   async update(data, currentStatus) {
-		console.log(currentStatus);
-		console.log(data.status);
-		console.log(data.status == currentStatus);
 		const data_url = `${API_URL}/${data.status}/${data.id}`;
 		if (data.status == currentStatus) {
 

@@ -2,9 +2,9 @@ import Observer from './observer.js';
 import trashIcon from '../assets/images/icons/trash-icon.svg';
 
 class ColumnView extends Observer {
-  constructor(taskController, status) {
+  constructor(columnController, status) {
     super();
-    this.taskController = taskController;
+    this.columnController = columnController;
     this.status = status;
 
     // Define required element's nodes in DOM
@@ -13,14 +13,14 @@ class ColumnView extends Observer {
 
     // Open add Modal when click add button
     this.btnAdd.addEventListener("click", () => {
-      this.taskController.openAddModal(this.status);
+      this.columnController.openAddModal(this.status);
     });
 
-		// window.addEventListener("load", async () => {
-		// 	taskController.readData(this.status);
-		// });
+		window.addEventListener("load", async () => {
+			columnController.readData(this.status);
+		});
 
-    this.taskController.model.addObserver(this);
+    this.columnController.model.addObserver(this);
   }
 
 
@@ -38,10 +38,10 @@ class ColumnView extends Observer {
       // Open update Modal when click on Tasks
       taskItem.addEventListener("click", (event) => {
         if (event.target !== trashBtn) {
-          this.taskController.openUpdateModal(taskObject);
+          this.columnController.openUpdateModal(taskObject);
         } else {
           const task = trashBtn.parentNode.parentNode;
-          this.taskController.openConfirmModal(task);
+          this.columnController.openConfirmModal(task);
         }
       });
     }

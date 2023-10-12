@@ -18,9 +18,9 @@ function main() {
 	let editModalView = new EditModalView(columnController);
 
   // Render current tasks from Local Storage when load page
-  window.addEventListener('load', async () => {
-		columnController.readData();
-  });
+  // window.addEventListener('load', async () => {
+	// 	columnController.readData();
+  // });
 }
 
 main();
